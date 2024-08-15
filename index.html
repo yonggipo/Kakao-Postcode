@@ -17,6 +17,13 @@
       var kakaoMap = JSON.parse(URLSearch.get("kakaoMap"));
       var element_layer = document.getElementById("layer");
 
+      if (kakaoMap) {
+        var jsURL = "https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=" + key + "&libraries=services";
+        var geocodeJS = document.createElement("script");
+        geocodeJS.src = jsURL;
+        document.body.appendChild(geocodeJS);
+      }
+
       function callbackMessage(message) {
         try {
           onComplete.postMessage(message);
